@@ -31,7 +31,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
       - name: npm install
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           make clean-npm
       - name: npm test
@@ -39,8 +46,6 @@ jobs:
           npm test
       - name: npm build
         run: npm run build
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
