@@ -31,9 +31,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      # - name: npm install
-      #   run: |
-      #     make clean-npm
+      - name: npm install
+        run: |
+          make clean-npm
+      - name: npm test
+        run: |
+          npm test
       - name: npm build
         run: npm run build
       - name: Setup Pages
