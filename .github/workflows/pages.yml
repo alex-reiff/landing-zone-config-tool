@@ -27,11 +27,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: npm install
-        run: |
-          npm install --registry https://registry.npmjs.org
-          cd client
-          npm install --registry https://registry.npmjs.org
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # - name: npm install
+      #   run: |
+      #     make clean-npm
       - name: npm build
         run: npm run build
       - name: Setup Pages
