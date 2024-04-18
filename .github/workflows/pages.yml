@@ -32,9 +32,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: npm install 1
-        run: npm install 
+        run: npm install --registry https://registry.npmjs.org
       - name: npm install 2
-        run: cd client; npm install 
+        run: cd client; npm install --registry https://registry.npmjs.org
       - name: npm run build
         run: npm run build
       - name: Setup Pages
