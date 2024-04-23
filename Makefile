@@ -1,19 +1,23 @@
 # -*- mode:makefile; coding:utf-8 -*-
-
 #
-# npm
+# install dependencies
 #
 
-clean-npmrc:
-	rm -f .npmrc client/.npmrc
+all: dependency-install-darwin-linux dependency-pre-commit
 
-create-npmrc:  clean-npmrc
-	@echo 'Creating .npmrc file'
-	@curl -u ${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD} "https://na-private.artifactory.swg-devops.com/artifactory/api/npm/auth/" > .npmrc
-	echo "registry=https://na-private.artifactory.swg-devops.com/artifactory/api/npm/wcp-goldeneye-team-npm-virtual" >> .npmrc
-	sed -i.bak 's/_auth/\/\/na-private.artifactory.swg-devops.com\/artifactory\/api\/npm\/:_auth/' .npmrc
-	cp .npmrc client/.npmrc
-	rm -f .npmrc.bak
+dependency-install-darwin-linux:
+	./ci/install-deps.sh
+
+dependency-pre-commit:
+	pre-commit install
+
+# pre-commit for non-terraform repos
+pre-commit-no-terraform:
+	@echo "Running pre-commit hooks .."
+	@pre-commit run --all-files
+
+run-tests:
+	npm test
 
 clean-npm:
 	rm -rf node_modules/ client/node_modules/
