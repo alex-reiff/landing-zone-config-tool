@@ -12,4 +12,4 @@ jobs:
     secrets: inherit
     with:
       craSCCv2: true
-      craConfigYamlFile: "cra-config.yaml"
+      craConfigYamlFile: ""

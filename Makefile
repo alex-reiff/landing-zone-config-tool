@@ -17,6 +17,7 @@ pre-commit-no-terraform:
 	@pre-commit run --all-files
 
 run-tests:
+	npm install --save-dev
 	npm test
 
 clean-npm:
