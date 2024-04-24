@@ -102,8 +102,8 @@ jobs:
           echo "version=$SEMVER_VERSION"
           echo "version=$SEMVER_VERSION" >> "$GITHUB_OUTPUT"
 
-  create-failure-notifications:
-    needs: [ Semantic_Release ]
-    uses: ./.github/workflows/create-gh-issue-and-slack-message.yml
-    if: ${{ failure() }}
-    secrets: inherit
+  # create-failure-notifications:
+  #   needs: [ Semantic_Release ]
+  #   uses: ./.github/workflows/create-gh-issue-and-slack-message.yml
+  #   if: ${{ failure() }}
+  #   secrets: inherit
