@@ -6,13 +6,7 @@ on:
     branches:
       - main
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   call-terraform-release-pipeline:
-    uses: terraform-ibm-modules/common-pipeline-assets/.github/workflows/common-release.yml@v1.21.9
+    uses: alex-reiff/landing-zone-config-tool/.github/workflows/deploy.yml
     secrets: inherit
