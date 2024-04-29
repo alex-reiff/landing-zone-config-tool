@@ -8,8 +8,5 @@ on:
 
 jobs:
   call-terraform-release-pipeline:
-    uses: ./pages-release.yml
+    uses: alex-reiff/landing-zone-config-tool/.github/workflows/pages-release.yml@main
     secrets: inherit
-    permissions:
-      id-token: write
-      contents: read
