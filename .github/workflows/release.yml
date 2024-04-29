@@ -8,5 +8,8 @@ on:
 
 jobs:
   call-terraform-release-pipeline:
-    uses: alex-reiff/landing-zone-config-tool/.github/workflows/deploy.yml@main
+    uses: terraform-ibm-modules/common-pipeline-assets/.github/workflows/pages-release.yml@main
     secrets: inherit
+    permissions:
+      id-token: write
+      contents: read
