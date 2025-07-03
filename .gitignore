@@ -1,33 +1,24 @@
-.terraform.*
-example_tests/.terraform.*
-.terraform/
-.DS_Store
-terraform.*.*
-terraform.tfstate
-provider.tf
-*.x
-dev.sh
-config_test/
-config_test.tf
-dev.*
-.env
-node_modules/
-frog.*
-terraform.tfvars
-.nyc_output/
-.acceptance_tests/
-tfplan.json
-example-tests/acceptance-tests/package-lock.json
-example-tests/acceptance-tests/node_modules
-goals.md
-.vscode
-.yarn
-.circleci
-.yarnrc
-.old
-compatibility-tests/patterns/
-tfxjs.tfvars
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-#production
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
 /build
-.icse/
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
