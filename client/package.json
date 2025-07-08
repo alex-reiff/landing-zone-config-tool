@@ -9,7 +9,7 @@
   "main": "/src/index.js",
   "homepage": "https://alex-reiff.github.io/landing-zone-config-tool/",
   "engines": {
-    "node": "20.18.1"
+    "node": "20.19.2"
   },
   "scripts": {
     "build": "craco build",
