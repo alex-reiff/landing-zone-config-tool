@@ -1,4 +1,4 @@
-name: Github Pages Cron Release
+name: Github Pages Cron Release - Action
 
 on:
   workflow_dispatch:
