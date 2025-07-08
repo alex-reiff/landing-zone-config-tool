@@ -5,19 +5,18 @@
   "main": "index.js",
   "type": "module",
   "engines": {
-    "node": "20.19.2"
+    "node": "20.18.1"
   },
   "scripts": {
     "test": "mocha unit-tests/",
     "coverage": "npx nyc npm run test",
     "build-local": "npm i && cd client && npm i && craco build && cp -r build ../",
-    "build": "cd client && npm run build && cp -r build ../",
+    "build": "cd client && craco build && cp -r build ../",
     "client": "npm run build && open http://localhost:3000",
-    "start": "cd client && npm run start",
+    "start": "NODE_ENV=production && npm run build && node server.js",
     "md": "node lib/docs-as-markdown",
     "changelog": "node lib/changelog-as-markdown",
-    "rebuild": "cd client && npm run rebuild && cp -r build ../",
-    "deploy": "cd client && npm run deploy",
+    "deploy": "./deploy.sh",
     "compatibility-tests": "./compatibility.sh"
   },
   "author": "",
@@ -26,15 +25,15 @@
     "lazy-z": "1.12.1"
   },
   "devDependencies": {
-    "@craco/craco": "^5.9.0",
-    "chai": "5.2.0",
+    "@craco/craco": "7.1.0",
+    "chai": "5.1.2",
     "mocha": "10.8.2",
     "nyc": "17.1.0"
   },
   "overrides": {
     "express": "4.21.2",
     "nth-check": "2.1.1",
-    "postcss": "8.5.6",
+    "postcss": "8.4.49",
     "webpack-dev-middleware": "7.4.2"
   }
 }

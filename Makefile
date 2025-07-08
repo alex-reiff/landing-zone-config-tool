@@ -36,6 +36,12 @@ create-npmrc:  clean-npmrc
 clean-npm:
 	rm -rf node_modules/ client/node_modules/
 	rm -f package-lock.json client/package-lock.json
+	npm install
+	cd client; npm install
+
+clean-npm-dev:
+	rm -rf node_modules/ client/node_modules/
+	rm -f package-lock.json client/package-lock.json
 	npm install --save-dev
 	cd client; npm install --save-dev
 
